@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-primary: #050d1a;
+  --bg-secondary: #0a1628;
+  --bg-card: #0d1f35;
+  --accent-cyan: #00d4ff;
+  --accent-blue: #0066cc;
+  --text-primary: #ffffff;
+  --text-secondary: #8892a4;
+  --border-cyan: rgba(0, 212, 255, 0.2);
+  --glow-cyan: rgba(0, 212, 255, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow-x: hidden;
+}
+
+/* ==========================================
+   SCROLLBAR STYLING
+   ========================================== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--accent-cyan);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-blue);
+}
+
+/* ==========================================
+   SELECTION STYLING
+   ========================================== */
+::selection {
+  background: rgba(0, 212, 255, 0.3);
+  color: #ffffff;
+}
+
+/* ==========================================
+   TYPOGRAPHY
+   ========================================== */
+.heading-font {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #00d4ff 0%, #0066cc 50%, #00d4ff 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #00d4ff, #ffffff, #00d4ff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+/* ==========================================
+   GLOW EFFECTS
+   ========================================== */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3), 0 0 40px rgba(0, 212, 255, 0.1);
+}
+
+.glow-cyan-text {
+  text-shadow: 0 0 20px rgba(0, 212, 255, 0.8), 0 0 40px rgba(0, 212, 255, 0.4);
+}
+
+.glow-btn {
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.8), 0 0 60px rgba(0, 212, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   CARD STYLES
+   ========================================== */
+.card-cyber {
+  background: rgba(13, 31, 53, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-cyber::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  transition: left 0.5s ease;
+}
+
+.card-cyber:hover::before {
+  left: 100%;
+}
+
+.card-cyber:hover {
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
+  transform: translateY(-5px);
+}
+
+/* ==========================================
+   BUTTON STYLES
+   ========================================== */
+.btn-primary {
+  background: linear-gradient(135deg, #00d4ff, #0066cc);
+  color: white;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 5px 25px rgba(0, 212, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: #00d4ff;
+  padding: 13px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  letter-spacing: 0.5px;
+  border: 2px solid #00d4ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: rgba(0, 212, 255, 0.1);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   HERO BACKGROUND SLIDESHOW
+   ========================================== */
+.hero-bg-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+  animation: bgSlideshow 20s infinite;
+}
+
+.hero-bg-slide:nth-child(1) { animation-delay: 0s; }
+.hero-bg-slide:nth-child(2) { animation-delay: 5s; }
+.hero-bg-slide:nth-child(3) { animation-delay: 10s; }
+.hero-bg-slide:nth-child(4) { animation-delay: 15s; }
+
+@keyframes bgSlideshow {
+  0%, 20% { opacity: 0.35; }
+  25%, 95% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+/* ==========================================
+   PARTICLE CANVAS
+   ========================================== */
+#particle-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ==========================================
+   SECTION DIVIDERS
+   ========================================== */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.4), transparent);
+}
+
+/* ==========================================
+   CYBER GRID BACKGROUND
+   ========================================== */
+.cyber-grid-bg {
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2300d4ff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ==========================================
+   FLOATING TECH ICONS
+   ========================================== */
+.tech-float-icon {
+  position: absolute;
+  opacity: 0.08;
+  animation: techFloat linear infinite;
+  pointer-events: none;
+  color: #00d4ff;
+  font-size: 24px;
+  z-index: 1;
+}
+
+@keyframes techFloat {
+  0% {
+    transform: translateY(110vh) rotate(0deg);
+    opacity: 0;
+  }
+  5% { opacity: 0.08; }
+  95% { opacity: 0.08; }
+  100% {
+    transform: translateY(-10vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* ==========================================
+   NAV STYLES
+   ========================================== */
+.nav-link {
+  position: relative;
+  color: #8892a4;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00d4ff, #0066cc);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #00d4ff;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  color: #00d4ff;
+}
+
+/* ==========================================
+   FORM STYLES
+   ========================================== */
+.form-input {
+  background: rgba(10, 22, 40, 0.8);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  color: #ffffff;
+  padding: 14px 16px;
+  border-radius: 8px;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.form-input:focus {
+  border-color: #00d4ff;
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+  background: rgba(10, 22, 40, 1);
+}
+
+.form-input::placeholder {
+  color: #5a6a7e;
+}
+
+.form-input option {
+  background: #0a1628;
+  color: #ffffff;
+}
+
+/* ==========================================
+   STATS
+   ========================================== */
+.stat-card {
+  text-align: center;
+  padding: 30px 20px;
+  border-radius: 12px;
+  background: rgba(13, 31, 53, 0.5);
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  background: rgba(13, 31, 53, 0.8);
+  transform: translateY(-3px);
+}
+
+.stat-number {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #00d4ff, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+/* ==========================================
+   SERVICE ICON ANIMATION
+   ========================================== */
+.service-icon-wrapper {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(0, 102, 204, 0.1));
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-icon-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(0, 102, 204, 0.2));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-cyber:hover .service-icon-wrapper {
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
+
+.card-cyber:hover .service-icon-wrapper::before {
+  opacity: 1;
+}
+
+/* ==========================================
+   SECTION HEADING
+   ========================================== */
+.section-tag {
+  display: inline-block;
+  color: #00d4ff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ==========================================
+   WHY US FEATURE ITEM
+   ========================================== */
+.feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 212, 255, 0.08);
+  background: rgba(13, 31, 53, 0.3);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover {
+  border-color: rgba(0, 212, 255, 0.25);
+  background: rgba(13, 31, 53, 0.6);
+  transform: translateX(5px);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(0, 102, 204, 0.15));
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #00d4ff;
+  font-size: 22px;
+}
+
+/* ==========================================
+   TYPING ANIMATION
+   ========================================== */
+.typing-text {
+  border-right: 2px solid #00d4ff;
+  animation: blink 0.75s step-end infinite;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: #00d4ff; }
+}
+
+/* ==========================================
+   ORBIT ANIMATION (hero decoration)
+   ========================================== */
+.orbit-ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 212, 255, 0.1);
+  animation: orbit 20s linear infinite;
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer-link {
+  color: #8892a4;
+  transition: color 0.3s ease;
+  font-size: 14px;
+}
+
+.footer-link:hover {
+  color: #00d4ff;
+}
+
+/* ==========================================
+   RESPONSIVE — Mobile First
+   ========================================== */
+
+/* Small phones (< 480px) */
+@media (max-width: 479px) {
+  .stat-number { font-size: 1.9rem; }
+
+  .btn-primary,
+  .btn-outline {
+    padding: 12px 22px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+
+  .section-tag { font-size: 11px; letter-spacing: 2px; }
+
+  .feature-item { flex-direction: column; gap: 10px; }
+  .feature-icon { width: 40px; height: 40px; font-size: 18px; }
+
+  .card-cyber { padding: 20px 16px !important; }
+  .service-icon-wrapper { width: 56px; height: 56px; }
+}
+
+/* Phones (480 – 767px) */
+@media (max-width: 767px) {
+  .stat-number { font-size: 2.1rem; }
+
+  .card-cyber { border-radius: 14px; }
+
+  /* Prevent orbit rings from causing horizontal scroll */
+  .orbit-ring { display: none; }
+}
+
+/* Tablets (768 – 1023px) */
+@media (max-width: 1023px) {
+  .stat-number { font-size: 2.4rem; }
+}
+
+/* Global: no horizontal overflow */
+body, html {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Touch-friendly tap targets */
+@media (hover: none) {
+  .btn-primary:hover,
+  .btn-outline:hover,
+  .card-cyber:hover {
+    transform: none;
+  }
+  .glow-btn:hover {
+    box-shadow: none;
+  }
+}
+
+/* Form inputs on mobile */
+@media (max-width: 767px) {
+  .form-input {
+    font-size: 16px; /* prevents iOS auto-zoom */
+    padding: 13px 14px;
+  }
+}
